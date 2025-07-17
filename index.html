@@ -1,0 +1,54 @@
+<div class="title">
+<h1>Fall Guys Tech</h1>
+</div>
+<div class="main">
+<h2>Guides</h2>
+<div id="guides"></div>
+</div>
+<script>
+
+fetch("guides.xml")
+    .then(response => response.text())
+    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+    .then(data => {
+        let items = data.querySelectorAll("item")
+
+        items.forEach(item => {
+            varr += item.querySelector("title").textContent+"<br>"
+        });
+
+        document.getElementById("guides").innerHTML = varr
+    });
+
+</script>
+<style>
+    h1{
+        text-align:center;
+        font-size:xx-large
+    }
+.main{
+    width:60%;
+    margin:auto;
+}
+.title{
+    background:linear-gradient(0deg,#333333,#444444,#444444,#444444,#444444,#444444,#333333);
+    padding:10px;
+    margin:0;
+    border-radius:30px;
+}
+html{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#333333;
+    color:#FFFFFF;
+    word-wrap: break-word;
+    text-align:center;
+}
+a{
+    color:lightskyblue;
+    text-decoration:none;
+}
+.final{
+    text-align:center;
+}
+</style>
+
