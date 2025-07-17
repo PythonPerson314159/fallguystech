@@ -14,7 +14,7 @@ fetch("guides.xml")
         let items = data.querySelectorAll("item")
 
         items.forEach(item => {
-            varr += item.querySelector("title").textContent+"<br>"
+            varr += "<a href="+item.querySelector("url").textContent+">"+item.querySelector("title").textContent+"</a><br>"
         });
 
         document.getElementById("guides").innerHTML = varr
